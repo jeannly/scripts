@@ -1,4 +1,5 @@
 import com
+# Define nodes and call com() from here
 
 nodes = [
     {'x': 55, 'y': 42, 'weight': 1},

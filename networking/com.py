@@ -1,7 +1,7 @@
 # Jean Yap s3783869, 12/4/2022
 # For RMIT EEET2292
-# Centre of Mass Algorithm
-# This has not been tested well. Assumptions are that all given inputs are more or less
+# Centre of Mass Algorithm (COM)
+# This has not been fully tested!! Assumptions are that all given inputs are more or less
 #   cluster-able, in line with assessments.
 
 import math
@@ -25,8 +25,10 @@ def getCluster(node1, node2):
     cluster['weight'] = node1['weight'] + node2['weight']
     return cluster
 
-# nodes is an array of dicts
-#   where a node is in the format: node = { 'x': 0, 'y': 0, 'weight': 0}
+# Given a bunch of nodes, and certain requirements, return the centre
+#   of mass for a network.
+# nodes is an array of dicts, where a node is in the format: 
+#       node = { 'x': 0, 'y': 0, 'weight': 0}
 def com(nodes, max_weight, min_weight, max_distance, cluster_amount):
     results = []
 
