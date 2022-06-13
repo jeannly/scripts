@@ -1,3 +1,4 @@
+# Author: Jean Yap
 # Rounded, based on NBN data (TBps). The ultimate goal would have been to get the raw data, but alas..
 # https://www.nbnco.com.au/content/dam/nbn/images/blog/the-impacts-of-covid-19-response-measures-on-australian-broadband-traffic-on-the-nbn-network.pdf
 # We just want the curve for this, and then fit our server TB usage to it.

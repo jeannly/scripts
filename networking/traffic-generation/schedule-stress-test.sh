@@ -1,3 +1,5 @@
+# Scheduled stress test
+# Author: Jean Yap
 #!/bin/sh
 #atd must be enabled in order for this to work
 # Schedule a 24hr network test
