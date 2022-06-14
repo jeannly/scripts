@@ -1,4 +1,4 @@
-import com
+from com import com
 # Define nodes and call com() from here
 
 nodes = [
@@ -15,4 +15,4 @@ nodes = [
 ];
 
 
-com.com(nodes, 4, 0, 1000, 3)
+com(nodes, max_weight=4, min_weight=0, max_distance=1000, cluster_amount=3)

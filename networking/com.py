@@ -38,17 +38,17 @@ def com(nodes, max_weight, min_weight, max_distance, cluster_amount):
         print(nodes)
         return nodes
     
-# 1. Calculate the distances (costs) between all node pairs.
-    # Pair every element (i) with the elements following it (j)
+# 1. Calculate the distances (costs) between all node pairs, and store them in 'results'.
+# Pair every element (i) with the elements following it (j)
     for i, node1 in enumerate(nodes):
-        # We can't pair the last element with anything
+        # If we've reached the last element, break. There are no elements following it
         if (i == len(nodes)-1):
             break;
         for j, node2 in enumerate(nodes[i+1:]):
-             # i and j are used for indexing the 'nodes' parameter: thus i+j+1
-            result = {'node1': i, 'node2': i+j+1, 'distance': -1}
+            # Store the nodes
+            result = {'node1': i, 'node2': i+j+1, 'distance': -1} # i and j are used for indexing the 'nodes' parameter: thus i+j+1
             result['distance'] = getDistance(node1,node2)
-            # If distance > max_distance, ignore. We won't be able to cluster it.
+            # If distance > max_distance, discard the result. We won't be able to cluster it.
             if (result['distance'] > max_distance):
                 break;
             results.append(result)
@@ -65,11 +65,11 @@ def com(nodes, max_weight, min_weight, max_distance, cluster_amount):
         node1 = nodes[r['node1']]
         node2 = nodes[r['node2']]
         cluster = getCluster(node1,node2)
-        # Again, ignore the pairs we won't be able to cluster
+        # If we find a pair we can't cluster, ignore it and try the next pair
         if (cluster['weight'] < min_weight or cluster['weight'] > max_weight):
             continue
-        # node2 HAS to be popped before node 1: because otherwise, an element that doesn't exist might be accessed
-        nodes.pop(r['node2'])
+        # Otherwise, replace the nodes with their new cluster and move on to step 4.
+        nodes.pop(r['node2']) # node2 HAS to be popped before node 1: because otherwise, an element that doesn't exist might be accessed
         nodes.pop(r['node1'])
         nodes.append(cluster)
         break
